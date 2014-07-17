@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-yum "custom" do
+yum_repository "custom" do
   description "centos"
   url "http://pkg.jenkins-ci.org/redhat/jenkins.repo"
   repo_name "custom"
