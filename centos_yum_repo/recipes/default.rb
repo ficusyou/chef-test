@@ -10,7 +10,6 @@
 yum_repository "jenkins" do
   description "jenkins"
   baseurl "http://pkg.jenkins-ci.org/redhat/jenkins.repo"
-  enabled "true"
   action :create
 end
 
