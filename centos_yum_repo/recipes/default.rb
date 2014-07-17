@@ -7,11 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-yum_repository "custom" do
-  description "centos"
-  url "http://pkg.jenkins-ci.org/redhat/jenkins.repo"
-  repo_name "custom"
-  action :add
+yum_repository "jenkins" do
+  description "jenkins"
+  baseurl "http://pkg.jenkins-ci.org/redhat/jenkins.repo"
+  enabled "true"
+  action :create
 end
 
 yum_package "jenkins" do
