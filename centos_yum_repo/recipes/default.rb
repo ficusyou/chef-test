@@ -9,7 +9,7 @@
 
 yum_repository "centos-base" do
   description "centos-base"
-  baseurl "http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=os"
+  mirrorlist "http://mirrorlist.centos.org/?release=6&arch=$basearch&repo=os"
   gpgcheck false
   action :create
 end
