@@ -1,0 +1,5 @@
+name        "centos_yum_repo"
+description "Setup centos yum repo"
+maintainer  "Ken"
+license     "All rights reserved"
+version     "1.0.0"
