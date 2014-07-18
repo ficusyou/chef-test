@@ -8,27 +8,19 @@
 #
 
 # install s3 yum tools
-git "/tmp/yum-s3-iam" do
-  repository "https://github.com/seporaitis/yum-s3-iam"
-  user "root"
+cookbook_file "s3iam.py" do
+  path "/usr/lib/yum-plugins/s3iam.py"
+  owner "root"
   group "root"
-  revision "master"
-  action :sync
-end
-
-file "/usr/lib/yum-plugins/s3iam.py" do
-  owner 'root'
-  group 'root'
-  mode 0755
-  content ::File.open("/tmp/yum-s3-iam/s3iam.py").read
+  mode 00755
   action :create
 end
 
-file "/etc/yum/pluginconf.d/s3iam.conf" do
-  owner 'root'
-  group 'root'
-  mode 0755
-  content ::File.open("/tmp/yum-s3-iam/s3iam.conf").read
+cookbook_file "s3iam.conf" do
+  path "/etc/yum/pluginconf.d/s3iam.conf"
+  owner "root"
+  group "root"
+  mode 00644
   action :create
 end
 
