@@ -9,6 +9,6 @@
 
 # install tecate server
 yum_package "vline-tecate-server" do
-  action :install
+  action :upgrade
   flush_cache [:before]
 end
