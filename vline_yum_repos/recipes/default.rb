@@ -32,12 +32,20 @@ yum_repository "vline-libcxx" do
   action :create
 end
 
-execute "add special s3_enabled flag for libcxx" do
-  user "root"
-  command "echo s3_enabled=1 >> /etc/yum.repos.d/vline-libcxx.repo"
+yum_package "vline-libcxx" do
+  action :install
+  flush_cache [:before]
 end
 
-yum_package "vline-libcxx" do
+# setup tecate-server repo
+yum_repository "vline-tecate-server" do
+  description "vline tecate server s3 yum repository"
+  baseurl "http://airtime-stage-repos.s3.amazonaws.com/tecate-server"
+  gpgcheck false
+  action :create
+end
+
+yum_package "vline-tecate-server" do
   action :install
   flush_cache [:before]
 end
