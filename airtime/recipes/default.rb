@@ -32,6 +32,22 @@ yum_repository "centos-base" do
   action :create
 end
 
+# setup vline-libcxx repo
+yum_repository "vline-libcxx" do
+  description "vline libcxx s3 yum repository"
+  baseurl "http://airtime-stage-repos.s3.amazonaws.com/libcxx"
+  gpgcheck false
+  action :create
+end
+
+# setup tecate-server repo
+yum_repository "vline-tecate-server" do
+  description "vline tecate server s3 yum repository"
+  baseurl "http://airtime-stage-repos.s3.amazonaws.com/tecate-server"
+  gpgcheck false
+  action :create
+end
+
 # abrt install would currently fail because of dependence on old library
 #yum_package "abrt" do
 #  action :install
