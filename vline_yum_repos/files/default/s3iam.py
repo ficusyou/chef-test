@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Ken: patched to search baseurl for amazon.aws.com since s3_enabled can't be set by chef (or at least I can't figure it out)
+
 
 __author__ = "Julius Seporaitis"
 __email__ = "julius@seporaitis.net"
@@ -27,6 +29,7 @@ import time
 import hashlib
 import hmac
 import json
+import re
 
 import yum
 import yum.config
@@ -54,7 +57,12 @@ def postreposetup_hook(conduit):
     repos = conduit.getRepos()
 
     for repo in repos.listEnabled():
-        if isinstance(repo, YumRepository) and repo.s3_enabled:
+        s3_enabled=False
+        if repo.baseurl:
+            m = re.search("s3.amazonaws.com",repo.baseurl[0])
+            if None != m:
+                s3_enabled=True
+        if isinstance(repo, YumRepository) and s3_enabled:
             new_repo = S3Repository(repo.id, repo.baseurl)
             new_repo.name = repo.name
             # new_repo.baseurl = repo.baseurl
