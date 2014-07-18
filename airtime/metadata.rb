@@ -1,4 +1,4 @@
-name        "airtime_custom_repo"
+name        "airtime"
 description "Setup airtime custom repo"
 maintainer  "Ken"
 license     "All rights reserved"
