@@ -32,18 +32,18 @@ yum_repository "centos-base" do
   action :create
 end
 
-# setup vline-libcxx repo
-yum_repository "vline-libcxx" do
-  description "vline libcxx s3 yum repository"
-  baseurl "http://airtime-stage-repos.s3.amazonaws.com/libcxx"
+# setup airtime-libcxx repo
+yum_repository "airtime-libcxx" do
+  description "airtime libcxx s3 yum repository"
+  baseurl "http://airtime-rpms.s3.amazonaws.com/libcxx"
   gpgcheck false
   action :create
 end
 
 # setup tecate-server repo
-yum_repository "vline-tecate-server" do
-  description "vline tecate server s3 yum repository"
-  baseurl "http://airtime-stage-repos.s3.amazonaws.com/tecate-server"
+yum_repository "airtime-tecate-server" do
+  description "airtime tecate server s3 yum repository"
+  baseurl "http://airtime-rpms.s3.amazonaws.com/tecate-server"
   gpgcheck false
   action :create
 end
