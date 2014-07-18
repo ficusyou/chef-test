@@ -16,21 +16,21 @@ git "/root" do
   action :sync
 end
 
-cookbook_file "/usr/lib/yum-plugins/s3iam.py" do
-  source "/root/yum-s3-iam/s3iam.py"
-  owner "root"
-  group "root"
-  mode 00755
-  action :create
-end
+#cookbook_file "/usr/lib/yum-plugins/s3iam.py" do
+#  source "/root/yum-s3-iam/s3iam.py"
+#  owner "root"
+#  group "root"
+#  mode 00755
+#  action :create
+#end
 
-cookbook_file "/etc/yum/pluginconf.d/s3iam.conf" do
-  source "/root/yum-s3-iam/s3iam.conf"
-  owner "root"
-  group "root"
-  mode 00644
-  action :create
-end
+#cookbook_file "/etc/yum/pluginconf.d/s3iam.conf" do
+#  source "/root/yum-s3-iam/s3iam.conf"
+#  owner "root"
+#  group "root"
+#  mode 00644
+#  action :create
+#end
 
 # setup vline-libcxx repo
 yum_repository "vline-libcxx" do
