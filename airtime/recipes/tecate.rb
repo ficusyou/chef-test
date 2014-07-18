@@ -7,23 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# install s3 yum tools
-cookbook_file "s3iam.py" do
-  path "/usr/lib/yum-plugins/s3iam.py"
-  owner "root"
-  group "root"
-  mode 00755
-  action :create
-end
-
-cookbook_file "s3iam.conf" do
-  path "/etc/yum/pluginconf.d/s3iam.conf"
-  owner "root"
-  group "root"
-  mode 00644
-  action :create
-end
-
 # setup vline-libcxx repo
 yum_repository "vline-libcxx" do
   description "vline libcxx s3 yum repository"
