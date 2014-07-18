@@ -10,6 +10,8 @@
 # install s3 yum tools
 git "/tmp" do
   repository "https://github.com/seporaitis/yum-s3-iam"
+  user "root"
+  group "root"
   revision "master"
   action :sync
 end
@@ -19,7 +21,7 @@ cookbook_file "/usr/lib/yum-plugins/s3iam.py" do
   owner "root"
   group "root"
   mode 00755
-  action :create_if_missing
+  action :create
 end
 
 cookbook_file "/etc/yum/pluginconf.d/s3iam.conf" do
@@ -27,7 +29,7 @@ cookbook_file "/etc/yum/pluginconf.d/s3iam.conf" do
   owner "root"
   group "root"
   mode 00644
-  action :create_if_missing
+  action :create
 end
 
 # setup vline-libcxx repo
