@@ -53,3 +53,9 @@ end
 #  action :install
 #  flush_cache [:before]
 #end
+
+yum_package "vline-libcxx" do
+  action :install
+  flush_cache [:before]
+end
+

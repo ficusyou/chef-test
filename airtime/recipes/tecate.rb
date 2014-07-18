@@ -7,12 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# install vline tools
-yum_package "vline-libcxx" do
-  action :install
-  flush_cache [:before]
-end
-
+# install tecate server
 yum_package "vline-tecate-server" do
   action :install
   flush_cache [:before]
