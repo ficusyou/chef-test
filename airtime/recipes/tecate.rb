@@ -8,7 +8,7 @@
 #
 
 # install tecate server
-yum_package "vline-tecate-server" do
+yum_package "vline-tecate-server = 0.1.0" do
   action :upgrade
   flush_cache [:before]
 end
