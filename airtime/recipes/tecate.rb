@@ -11,6 +11,6 @@
 yum_package "vline-tecate-server" do
   version node[:tecate_version]
   allow_downgrade true
-  action :upgrade
+  action :install
   flush_cache [:before]
 end
